@@ -8,10 +8,12 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { Link } from "gatsby"
 import Header from "./header"
 import "./layout.css"
-//no entiendo muy bien esto
+
+
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -31,8 +33,29 @@ const Layout = ({ children }) => {
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
+          
         }}
       >
+      <nav >
+        <ul style = {{display: `flex`, gap:`35px`}}>
+          <li>
+            <Link to="/" >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" >
+              About
+            </Link>
+          </li>
+          <li >
+            <Link to="/blog" >
+              Blog
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      
         <main>{children}</main>
         <footer
           style={{
